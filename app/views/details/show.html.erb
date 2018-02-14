@@ -1,0 +1,30 @@
+<table style="width:100%">
+	<tr>
+		<th><div class="field">
+				<h1><%= @detail.title %></h1>
+			</div>
+		</th>
+
+		<th>
+			</div>
+				<%= @detail.body %>
+			</div>
+		</th>
+		<br>
+		<th>
+			<div class="field">
+				<%= image_tag @detail.image.url{:medium} %>
+			</div>
+		</th>
+	</tr>
+
+
+<tr>
+	<div>
+		<% if @detail.user == current_user %>
+  		<th><%= link_to "Edit", edit_detail_path(@detail) %></th>
+  		<th><%= link_to "Delete", detail_path(@detail), method: :delete, data: {confirm: "Are you sure ?"} %></th>
+		<% end %>
+	</div>
+</tr>
+</table>

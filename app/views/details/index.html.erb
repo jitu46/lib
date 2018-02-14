@@ -1,0 +1,17 @@
+<table style="width:100%" align ="center">
+  <tr>
+    <th>Title</th>
+    <th>User Email</th> 
+    <th>Image</th>
+    <th>Information</th>
+  </tr>
+  <br>
+  <tr>
+	<% @details.each do |detail| %>
+	<td><h3><%= detail.title %></h3></td>
+	<td><h4><%= detail.user.email %></h4></td>
+	<td><%= image_tag detail.image.url(:thumb) %></td>
+	<td><div><%= truncate(detail.body, :length =>60) %></div></td>
+	<td><%= link_to "Read Detail", detail %></td>
+  </tr>
+<% end %>

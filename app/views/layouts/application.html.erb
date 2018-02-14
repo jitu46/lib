@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lib</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <%= link_to "Home", root_path %><br><br>
+  <%= link_to "New Post", new_detail_path %><br><br>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= link_to "Sign Up", new_user_registration_path %><br><br>
+  <%= link_to "Sign in", new_user_session_path  %><br><br>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete %><br><br>
+  <br>
+  <div class="field">
+    <% if user_signed_in? %>
+      <div>Signed in as... <%= current_user.email %></div>
+    <% end %>
+  </div>
+
+<%= yield %>
+  </body>
+</html>
